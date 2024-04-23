@@ -50,27 +50,3 @@ resource "google_compute_instance" "tf-instance-2" {
   allow_stopping_for_update = true
 
 }
-
-resource "google_compute_instance" "tf-instance-3" {
-  name               = "tf-instance-995476"
-  machine_type       = "e2-standard-2"
-  boot_disk {
-    initialize_params {
-      image = data.google_compute_image.my_image.self_link
-    }
-  }
-
-  network_interface {
-    network = "default"
-
-    access_config {
-      // Ephemeral public IP
-    }
-  }
-  
-  metadata_startup_script = <<-EOT
-        #!/bin/bash
-    EOT
-  allow_stopping_for_update = true
-
-}
