@@ -1,14 +1,14 @@
 variable "region" {
   type   = string
-  default = "us-central1"
+  default = "europe-west4"
 }
 
 variable "zone" {
   type = string
-  default = "us-central1-b"
+  default = "europe-west4-c"
 }
 
 variable "project_id" {
   type       = string
-  default = "qwiklabs-gcp-01-77ba3848d55f"
+  default = "qwiklabs-gcp-01-44c841680bfe"
 }

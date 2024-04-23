@@ -5,6 +5,10 @@ terraform {
       version = "5.25.0"
     }
   }
+  backend "gcs" {
+    bucket  = "tf-bucket-679288"
+    prefix  = "terraform/state"
+  }
 }
 
 provider "google" {
@@ -20,3 +24,4 @@ module "instances" {
 module "storage" {
   source = "./modules/storage"
 }
+
