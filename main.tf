@@ -30,7 +30,7 @@ module "vpc" {
     version = "7.5.0"
 
     project_id   = var.project_id
-    network_name = "tf-vpc-005048"
+    network_name = var.network_name
     routing_mode = "GLOBAL"
 
     subnets = [
@@ -45,4 +45,17 @@ module "vpc" {
             subnet_region         = "europe-west4"
         }
     ]
+}
+
+resource "google_compute_firewall" "default" {
+  name    = var.firewall_name
+  network = "https://www.googleapis.com/compute/v1/projects/qwiklabs-gcp-01-44c841680bfe/global/networks/tf-vpc-005048"
+
+  source_ranges = ["0.0.0.0/0"]
+  
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
 }
